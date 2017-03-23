@@ -1,0 +1,34 @@
+package ojdbcpackage;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class OjdbcTest01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final String DB_url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		final String DB_user = "scott";
+		final String DB_password = "tiger";
+
+		Connection conn = null;
+		
+		try{
+			//라이브러리를 활용할 클래스를 로딩(필수
+			//jdbc를 활용하기 전에 반드시 해야한다.
+			//한번만 해주면 된다.
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("라이브러리 로드 완료");
+			conn = DriverManager.getConnection(DB_url,DB_user,DB_password);
+			System.out.println("접속 성공");
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+			System.out.println("라이브러리 로드 실패");
+		}catch(SQLException e){
+			e.printStackTrace();
+			System.out.println("접속 실패");
+		}
+	}
+
+}

@@ -1,0 +1,20 @@
+package ojdbcpackage;
+
+public class OjdbcTest01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final String DB_url = "jdbc:oracle:thin:@localhost:1521:xa";
+		final String DB_user = "scott";
+		final String DB_password = "tiger";
+
+		Connection conn = null;
+		
+		try{
+			
+		}catch(CrossNotFoundException e){
+			
+		}
+	}
+
+}
