@@ -1,3 +1,15 @@
+/*ojdbc 드래그
+프로젝트 폴더
+카피
+프로젝트 폴더 설정
+java Build path
+라이브러리스 탭
+Add JAR
+ojdbc6.jar
+
+order and export 탭
+ojdbc 채크 어플라이 오케이
+*/
 package ojdbcpackage;
 
 import java.sql.Connection;

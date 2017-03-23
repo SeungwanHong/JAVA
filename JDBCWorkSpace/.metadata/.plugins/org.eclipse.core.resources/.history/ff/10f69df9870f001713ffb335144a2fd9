@@ -1,0 +1,29 @@
+package ojdbcpackage;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class ojdbcTest02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final String DB_URL ="";
+		final String DB_USER = "";
+		final String DB_PASSWORD="";
+		
+		Connection conn = null;
+		PreparedStatement = null;
+		ResultSet = null;
+		
+		try{
+			
+		}catch(ClassNotFoundException){
+			
+		}catch(){
+			
+		}
+
+	}
+
+}

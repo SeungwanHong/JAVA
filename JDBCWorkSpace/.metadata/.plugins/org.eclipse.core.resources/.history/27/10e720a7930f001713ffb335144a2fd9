@@ -1,0 +1,76 @@
+package ojdbcpackage;
+
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class OjdbcTest03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		final String DB_URL = "jdbc:oracle:thin:@localhost:1521:orcl";
+		final String DB_USER = "scott";
+		final String DB_PASSWORD = "tiger";
+		
+		Connection conn = null;
+		PreparedStatement pstate = null;
+		ResultSet rs = null;
+		
+		Scanner sc = new Scanner(System.in);
+		String str = "";
+		
+		try{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("라이브러리 로드 성공");
+			conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+			System.out.println("연결 성공");
+			//1)
+//			System.out.println("검색할 이름 철자 입력 : ");
+//			str = sc.nextLine();
+//			String sql = "select * "
+//						+"from emp "
+//						+"where emp.ename like ?";
+//			pstate = conn.prepareStatement(sql);
+//			
+//			pstate.setString(1, "%"+str+"%");
+//			rs = pstate.executeQuery();
+//			while(rs.next()){
+//				String empno = rs.getString("EMPNO");
+//				String ename = rs.getString("ENAME");
+//				
+//				System.out.println(empno+"/"+ename);
+//			}
+			
+			//2)
+			System.out.println("검색할 부서코드 입력 (10,20,30): ");
+			str = sc.nextLine();
+			String sql = "select e.empno, e.ename, d.LOC "
+					+ "from emp e,dept d "
+					+ "where e.DEPTNO = d.DEPTNO "
+					+ "and d.DEPTNO = 20";
+			
+			pstate = conn.prepareStatement(sql);
+			
+			pstate.setString(1, str);
+			rs = pstate.executeQuery();
+			while(rs.next()){
+				String empno = rs.getString("EMPNO");
+				String ename = rs.getString("ENAME");
+				
+				System.out.println(empno+"/"+ename);
+			}
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+			System.out.println("라이브러리 로드 실패");
+		}catch(SQLException e){
+			e.printStackTrace();
+			System.out.println("sql 문제");
+		}
+	}
+
+}

@@ -1,0 +1,13 @@
+package ojdbcpackage;
+
+public class ojdbcTest02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		final String DB_URL ="";
+		final String DB_USER = "";
+		final String DB_PASSWORD="";
+
+	}
+
+}
