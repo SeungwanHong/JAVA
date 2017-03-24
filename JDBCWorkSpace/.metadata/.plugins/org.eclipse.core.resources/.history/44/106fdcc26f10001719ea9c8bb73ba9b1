@@ -33,7 +33,33 @@ public class SQLSender implements SQLSend{
 		}
 		return rs;
 		
-	}	
+	}
+	private boolean singcheck(String userid) {
+		// TODO Auto-generated method stub
+		int check =1;
+		sql = "SELECT COUNT(*) AS LOGIN_CNT "
+				+ "FROM TB_USER "
+				+ "WHERE USERID = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				check = rs.getInt("LOGIN_CNT");
+			}
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("로그인 채크 애러");
+		}
+		if(check==1){
+			return false;
+		}else{
+			return true;
+		}
+		
+	}
 	@Override
 	public void signUp(String userid, String userpw, String username, String email) {
 		// TODO Auto-generated method stub
@@ -69,32 +95,6 @@ public class SQLSender implements SQLSend{
 			System.out.println("중복된 아이디입니다.");
 		}
 		
-		
-	}
-	private boolean singcheck(String userid) {
-		// TODO Auto-generated method stub
-		int check =1;
-		sql = "SELECT COUNT(*) AS LOGIN_CNT "
-				+ "FROM TB_USER "
-				+ "WHERE USERID = ?";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userid);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				check = rs.getInt("LOGIN_CNT");
-			}
-			pstmt.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("로그인 채크 애러");
-		}
-		if(check==1){
-			return false;
-		}else{
-			return true;
-		}
 		
 	}
 	@Override
