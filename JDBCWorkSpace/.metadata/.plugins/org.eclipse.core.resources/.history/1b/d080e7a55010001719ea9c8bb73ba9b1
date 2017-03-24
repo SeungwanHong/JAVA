@@ -112,7 +112,8 @@ public class main02 {
 
 								break;
 							case EXIT:
-								System.out.println("게시판 종료 ");
+								System.out.println("종료 ");
+								lgmenu = 3;
 								break;
 							}
 						}
@@ -121,7 +122,7 @@ public class main02 {
 					}
 					break;
 				case JOIN:
-					int chjoin =1;
+					int chjoin;
 					System.out.println("회원가입");
 					String userid;
 					String userpw;

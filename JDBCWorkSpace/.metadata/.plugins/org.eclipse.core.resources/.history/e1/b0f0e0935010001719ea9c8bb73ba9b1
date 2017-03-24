@@ -112,7 +112,8 @@ public class main02 {
 
 								break;
 							case EXIT:
-								System.out.println("게시판 종료 ");
+								System.out.println("종료 ");
+								lgmenu = 3;
 								break;
 							}
 						}
@@ -121,7 +122,7 @@ public class main02 {
 					}
 					break;
 				case JOIN:
-					int chjoin =1;
+					int chjoin
 					System.out.println("회원가입");
 					String userid;
 					String userpw;
@@ -139,34 +140,35 @@ public class main02 {
 					System.out.print("email: ");
 					email = sc.nextLine();
 					sql = "SELECT COUNT(*) AS LOGIN_CNT " + "FROM TB_USER " + "WHERE USERID = ?";
-					pstmt.setString(1, userid);
-					rs = pstmt.executeQuery();
-					while (rs.next()) {
-						chjoin = rs.getInt("LOGIN_CNT");
-					}
-					if (chjoin == 0) {
-						if (userpw.equals(chuserpw)) {
-							// 쿼리 처리 insert
-							sql = "INSERT INTO TB_USER(USERID,USERPW,USERNAME,EMAIL,JOINDATE) "
-									+ "VALUES(?,?,?,?,SYSDATE)";
-
-							pstmt = conn.prepareStatement(sql);
-							pstmt.setString(1, userid);
-							pstmt.setString(2, userpw);
-							pstmt.setString(3, username);
-							pstmt.setString(4, email);
-							// 예외 처리
-							if (pstmt.executeUpdate() == 1) {
-								System.out.println("가입 성공");
-							} else {
-								System.out.println("가입 실패");
-							}
-						} else {
-							System.out.println("패스워드가 같지 않습니다.");
-						}
-					} else {
-						System.out.println("중복된 아이디가 있습니다.");
-					}
+					 pstmt.setString(1, userid);
+					 rs = pstmt.executeQuery();
+					 result = 0;
+					 while (rs.next()) {
+					 result = rs.getInt("LOGIN_CNT");
+					 }
+					 if (result == 0) {
+					 if (userpw.equals(chuserpw)) {
+					 // 쿼리 처리 insert
+					 sql = "INSERT INTO TB_USER(USERID,USERPW,USERNAME,EMAIL,JOINDATE) "
+					 + "VALUES(?,?,?,?,SYSDATE)";
+					
+					 pstmt = conn.prepareStatement(sql);
+					 pstmt.setString(1, userid);
+					 pstmt.setString(2, userpw);
+					 pstmt.setString(3, username);
+					 pstmt.setString(4, email);
+					 // 예외 처리
+					 if (pstmt.executeUpdate() == 1) {
+					 System.out.println("가입 성공");
+					 } else {
+					 System.out.println("가입 실패");
+					 }
+					 } else {
+					 System.out.println("패스워드가 같지 않습니다.");
+					 }
+					 } else {
+					 System.out.println("중복된 아이디가 있습니다.");
+					 }
 
 					break;
 				case EXIT:
