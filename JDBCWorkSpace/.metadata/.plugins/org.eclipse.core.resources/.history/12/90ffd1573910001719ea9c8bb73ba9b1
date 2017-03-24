@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class main01 {
+	final static int WRITE = 1;
+	final static int CHECK = 1;
+	final static int EXIT = 1;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+
+	}
+
+}

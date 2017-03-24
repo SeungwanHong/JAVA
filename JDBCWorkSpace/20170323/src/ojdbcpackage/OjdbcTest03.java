@@ -104,32 +104,33 @@ public class OjdbcTest03 {
 //				System.out.println(cnt+"/"+deptno+"/"+sal);
 //			}
 			//5)
-			System.out.println("이름 입력: ");
-			str = sc.nextLine();
-			String sql = 
-					"select * "
-					+ "from emp "
-					+ "where emp.sal>(select avgs.avgsal "
-					+ "from (select round(avg(sal),2) as avgsal, deptno "
-					+ "           from emp "
-					+ "           group by deptno "
-					+ "          ) avgs, "
-					+ "          (select * "
-					+ "           from emp "
-					+ "           where emp.ename=? "
-					+ "           )nameing "
-					+ "where nameing.deptno = avgs.deptno)";
-			pstate = conn.prepareStatement(sql);
-			
-			pstate.setString(1, str);
-			rs = pstate.executeQuery();
-			while(rs.next()){
-				String empno = rs.getString("EMPNO");
-				String ename = rs.getString("ENAME");
-				int deptno = rs.getInt("DEPTNO");
-				
-				System.out.println(empno+"/"+deptno+"/"+deptno);
-			}
+//			System.out.println("이름 입력: ");
+//			str = sc.nextLine();
+//			String sql = 
+//					"select deptno, ename, deptno "
+//					+ "from emp "
+//					+ "where emp.sal>(select avgs.avgsal "
+//					+ "                from (select round(avg(sal),2) as avgsal, deptno "
+//					+ "                      from emp "
+//					+ "                      group by deptno "
+//					+ "                      ) avgs, "
+//					+ "                      (select * "
+//					+ "                       from emp "
+//					+ "                       where emp.ename='MILLER' "
+//					+ "                       )nameing "
+//					+ "                where nameing.deptno = avgs.deptno)";
+//			
+//			pstate = conn.prepareStatement(sql);
+//			
+//			pstate.setString(1, str);
+//			rs = pstate.executeQuery();
+//			while(rs.next()){
+//				String empno = rs.getString("EMPNO");
+//				String ename = rs.getString("ENAME");
+//				String deptno = rs.getString("DEPTNO");
+//				
+//				System.out.println(empno+"/"+deptno+"/"+deptno);
+//			}
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 			System.out.println("라이브러리 로드 실패");

@@ -1,0 +1,57 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class main01 {
+	
+	final static int WRITE = 1;
+	final static int CHECK = 2;
+	final static int EXIT = 3;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int menu = 0;
+		String title;
+		String contents;
+		
+		final String DB_url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		final String DB_user = "scott";
+		final String DB_password = "tiger";
+
+		Connection conn = null;							//jdbc의 정보를 가지는 인터페이스
+		PreparedStatement pstmt = null;			//sql을 미리 준비 시키고
+																				//실행시에 매개변수를 받아 사용하는 방시
+																				//쿼리 실행 후 해당 쿼리의 결과물을 받아올 수 있다.
+
+		ResultSet rs = null;								//statement의 쿼리 실행 결과를 받아서
+																				//가지고올 수 있게 해주는 객체
+										
+		
+		while(menu != 3){
+			System.out.println("1. 게시글 작성 2. 게시글 확인 3. 종료");
+			menu = sc.nextInt();
+			sc.nextLine();
+			switch(menu){
+			case WRITE:
+				System.out.println("게시글 작성 ");
+				System.out.print("제목 : ");
+				title = sc.nextLine();
+				System.out.print("내용: ");
+				contents = sc.nextLine();
+				//쿼리 처리 insert
+				System.out.println("작성완료");
+				break;
+			case CHECK:
+				System.out.println("게시글 확인 ");
+				//쿼리 처리 select
+				break;
+			case EXIT:
+				System.out.println("종료 ");
+				break;
+			}
+		}
+	}
+
+}
