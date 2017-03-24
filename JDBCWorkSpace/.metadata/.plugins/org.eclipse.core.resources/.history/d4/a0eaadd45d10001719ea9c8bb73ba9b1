@@ -1,0 +1,7 @@
+package testBoard.interDB;
+
+
+public interface DBConnect {
+	void dbConnect();
+	void dbClose();
+}

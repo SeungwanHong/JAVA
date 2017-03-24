@@ -1,0 +1,46 @@
+package testBoard.interDB.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import testBoard.interDB.SQLSend;
+
+public class SQLSender implements SQLSend{
+
+	
+	private ResultSet rs = null;
+	
+
+	@Override
+	public ResultSet testsend(Connection conn, PreparedStatement pstmt, String userID) {
+		// TODO Auto-generated method stub
+		String sql ="SELECT * FROM EMP where "+userID;
+		try {
+			pstmt = conn.prepareStatement(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("쿼리 전송애러");
+		}
+	
+		try {
+			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("결과값 받기 애러");
+		}
+		
+		return rs;
+		
+	}
+
+
+	@Override
+	public ResultSet getdata(Connection connection, PreparedStatement preparedStatement, String sql) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

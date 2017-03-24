@@ -1,0 +1,9 @@
+package testBoard.interDB;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public interface DBConnect {
+	void dbConnect();
+	void dbClose(;
+}

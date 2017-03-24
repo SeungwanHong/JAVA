@@ -1,0 +1,8 @@
+package testBoard.interDB;
+
+import java.sql.SQLException;
+
+public interface DBConnect {
+	void dbConnect();
+	void dbClose() throws SQLException;
+}

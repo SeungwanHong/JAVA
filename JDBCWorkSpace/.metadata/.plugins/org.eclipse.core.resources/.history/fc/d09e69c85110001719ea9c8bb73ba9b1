@@ -1,0 +1,35 @@
+package testBoard;
+
+import java.util.Scanner;
+
+public class main01 {
+
+	final static int WRITE = 1;
+	final static int CHECK = 2;
+	final static int LOGIN = 1;
+	final static int JOIN = 2;
+	final static int EXIT = 3;
+	static String ID;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+		int lgmenu = 0;
+		int bdmenu = 0;
+		while(lgmenu != EXIT){
+			switch(lgmenu){
+			case LOGIN:
+				//login 성공
+					
+				//login 실패
+				break;
+			case JOIN:
+				break;
+			case EXIT:
+				break;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,7 @@
+package testBoard.interDB;
+
+public interface SQLSend {
+
+	void testsend();
+
+}

@@ -1,0 +1,64 @@
+package testBoard;
+
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import testBoard.interDB.DBConnect;
+import testBoard.interDB.SQLSend;
+import testBoard.interDB.impl.DBConnector;
+
+public class main01 {
+
+	final static int WRITE = 1;
+	final static int CHECK = 2;
+	final static int LOGIN = 1;
+	final static int JOIN = 2;
+	final static int EXIT = 3;
+	static String ID;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DBConnector db = new DBConnector();
+		SQLSend query = new SQLSender();
+		ResultSet rs = null;
+//		Scanner sc = new Scanner(System.in);
+//		int lgmenu = 0;
+//		int bdmenu = 0;
+//		while(lgmenu != EXIT){
+//			System.out.println("1) 로그인  2) 회원가입  3) 종료");
+//			lgmenu = sc.nextInt();
+//			sc.nextLine();
+//			switch(lgmenu){
+//			case LOGIN:
+//				//login 성공
+//					while(bdmenu !=EXIT){
+//						System.out.println("1. 게시글 작성 /2. 게시글 확인/ 3. 종료");
+//						bdmenu = sc.nextInt();
+//						sc.nextLine();
+//						switch(bdmenu){
+//						case WRITE:
+//							break;
+//						case CHECK:
+//							break;
+//						case EXIT:
+//							break;
+//						}
+//					}
+//				//login 실패
+//				break;
+//			case JOIN:
+//				break;
+//			case EXIT:
+//				break;
+//			}
+//		}
+		db.dbConnect();
+		String sql ="SELECT * FROM EMP";			//sql 문장(쿼리부분)
+		pstmt = conn.prepareStatement(sql);		//preparedStatement에 쿼리 등록
+
+		rs = pstmt.executeQuery();						//쿼리 실행 후 resultSet 형태로 리턴
+		db.dbClose();
+		
+	}
+
+}

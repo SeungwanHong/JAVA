@@ -1,0 +1,5 @@
+package testBoard;
+
+public interface DBConnector {
+	connect();
+}

@@ -1,3 +1,3 @@
 tmp user; -> login state,id
-interface = dbconnet,  logincheck, sql전송(예외처리), joincheck,
+interface = dbconnect,  loginchecker, sql전송(예외처리), joincheck,
 login_state,id 전역변수

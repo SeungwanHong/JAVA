@@ -1,0 +1,7 @@
+package testBoard.interDB.impl;
+
+import testBoard.interDB.SQLSend;
+
+public class SQLSender implements SQLSend{
+
+}

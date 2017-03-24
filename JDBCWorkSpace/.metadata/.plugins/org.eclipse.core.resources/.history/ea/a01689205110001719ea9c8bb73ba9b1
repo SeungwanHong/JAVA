@@ -1,0 +1,16 @@
+package testBoard;
+
+public class main01 {
+
+	final static int WRITE = 1;
+	final static int CHECK = 2;
+	final static int LOGIN = 1;
+	final static int JOIN = 2;
+	final static int EXIT = 3;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

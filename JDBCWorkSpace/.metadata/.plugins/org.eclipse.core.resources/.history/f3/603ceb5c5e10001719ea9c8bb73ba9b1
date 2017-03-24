@@ -1,0 +1,37 @@
+package testBoard.interDB.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import testBoard.interDB.SQLSend;
+
+public class SQLSender implements SQLSend{
+
+	
+	private ResultSet rs = null;
+	
+
+	@Override
+	public ResultSet testsend(Connection conn, PreparedStatement pstmt, String sql) {
+		// TODO Auto-generated method stub
+		ResultSet rs = null;
+		sql ="SELECT * FROM EMP";
+		try {
+			pstmt = conn.prepareStatement(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		try {
+			return rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+		
+	}
+}
