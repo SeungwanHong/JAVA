@@ -1,0 +1,15 @@
+import java.io.File;
+
+public class main02 {
+	public static void main(String[] args) {
+		File file = new File("test1.txt");
+		
+		//
+		if(file.exists()){
+			
+		}else{
+			System.out.println("파일이 없습니다.");
+		}
+		System.out.println("프로그램 종료");
+	}
+}

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public interface DBConnect {
-	void dbConnect();
 	void dbClose() throws SQLException;
 	Connection getConn();
 	PreparedStatement getPstmt();

@@ -1,0 +1,20 @@
+
+public class main05 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//System.in
+		//System.out
+
+		//1) System : 환경
+
+		//Sytem.in : 환경에서 뭔가 데이터를 받아 오겠다.(대표적인 입력 장치로부터)
+		//콘솔 환경에서 입력을 받아오겠다.(키보드)
+
+		//System.out : 환경에다 뭔가 데이터를 출력하겠다.
+		//콘솔환경에서 출력을 하겠다.(콘솔, 터미널, 모니터)
+
+
+	}
+
+}

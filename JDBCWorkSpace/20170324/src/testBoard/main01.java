@@ -25,7 +25,7 @@ public class main01 {
 		DBConnect db = new DBConnector();
 		Scanner sc = new Scanner(System.in);
 		
-		db.dbConnect();
+		
 		SQLSend query = new SQLSender(db.getConn(), db.getPstmt());
 		
 		ResultSet rs = null;
@@ -46,7 +46,6 @@ public class main01 {
 			sc.nextLine();
 			switch (lgmenu) {
 			case LOGIN:
-				// login 성공
 				System.out.println("아이디 : ");
 				id = sc.nextLine();
 				System.out.println("패스워드 : ");
@@ -77,6 +76,7 @@ public class main01 {
 				}
 				break;
 			case EXIT:
+				db.dbClose();
 				break;
 			}
 			while (boardin) {
@@ -97,7 +97,7 @@ public class main01 {
 //		System.out.println(1);
 //		query.signUp("test502", "test55", "test", "test2@321.321");
 //		System.out.println(2);
-		db.dbClose();
+		
 
 	}
 

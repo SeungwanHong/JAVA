@@ -1,0 +1,12 @@
+import java.io.File;
+
+public class main11 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		File objectFile = new File("objecData.txt");
+		
+		if(objectFile.exists())
+	}
+
+}

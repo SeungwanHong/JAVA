@@ -1,0 +1,36 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+public class main06 {
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		//					목적지
+		File file = new File("bufferedTest.txt");
+		//파일이 있는지 없는지느 모름
+		
+		
+		if(file.exists()){
+			//output
+			//log.txt출력
+			//System.out.println("있다.");
+			//내용 출력
+			
+		}
+		else{
+			//파일 만들기
+		}
+		
+		//입력받는데
+		//log.txt 저장 (outputStream)
+		buffer안의 내용이 똑같냐 
+		return;
+		//"exit"
+	}
+
+}

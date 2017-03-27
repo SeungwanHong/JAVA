@@ -1,0 +1,70 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Scanner;
+
+public class main06 {
+
+	//키보드로 입력받은 내용을 전부다 log.txt에 저장
+	//"exit" 입력시 프로그램 종료
+	//프로그램을 다시 실행하면 log.txt에 입력 되어 있던 내용을 표시
+	//Bufferd Reader / Writer를 사용 할 것.
+	//최초 실행시 log.txt가 없어 -> creatNewFile()
+	//있다면 내용 다 뿌려주고 다시 입력 받기 실행(isAppend = true)
+	//이어쓰기
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		File file = new File("log.txt");
+		Scanner sc = new Scanner(System.in);
+
+		if(file.exists()){
+			//주스트림
+			FileReader in = new FileReader(file);
+			//보조스트림
+			BufferedReader br = new BufferedReader(in);
+			
+			String line = "";
+			
+			while((line = br.readLine()) != null){
+				System.out.println(line);
+			}
+			br.close();
+		}
+		else{
+			file.createNewFile();
+		}
+		//주스트림
+		FileWriter out = new FileWriter(file);
+		//보조 스트림
+		BufferedWriter bw = new BufferedWriter(out);
+		String str = "";
+		while(true){
+			str = sc.nextLine();
+			if(str.equals("exit")){
+				break;
+			}else{
+				bw.write(str+"\n");
+			}
+			
+			
+		}
+		
+		bw.write("World");
+		
+		//보조스트림을 닫으면 주스트림은 자동으로 닫힌다.
+		bw.close();
+		System.out.println("프로그램 종료");
+		
+		//입력받는데
+		//log.txt 저장 (outputStream)
+		//buffer안의 내용이"exit"이랑 같냐
+		return;
+		//"exit"
+	}
+
+}

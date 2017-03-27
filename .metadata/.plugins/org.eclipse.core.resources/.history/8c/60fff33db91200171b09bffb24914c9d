@@ -1,0 +1,36 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+public class main10 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//객체 자체를 입출력하는 ObjectInput/Ouput Stream
+		//입출력 대상 객체에 질렬화가 필요하다 (Serial 인터페이스 implements)
+		
+		File objectFile = new File("objectData.txt");
+		
+		if(objectFile.exists()){
+			objectFile.createNewFile();
+		}
+		
+		FileOutputStream out = new FileOutputStream(objectFile);
+		ObjectOutputStream oos = new ObjectOutputStream(out);
+		
+		oos.writeObject(new Person());
+		oos.writeObject(new Person());
+		oos.writeObject(new Person());
+	}
+
+}
+
+//직렬화 인터페스 구현
+//실제 구현해야 할(오버라이딩  할) 메소드는 없지만 ObjectInput/Ouput Stream에서
+//Ser 인터페이스를 구현 했는지 여부를 판단했다.
+//ObjectInput/Ouput Stream을 활용하기 위해서는 객체를 입력하는쪽, 출력 하는쪽 모두 똑같은 클래스를 사용해야한다.
+//보통 웹 통신에서는 사용 하지 않는다.(로컬 파일에 객체를 저장해 놓고 다시 불러오는 형태로 많이 사용)
+
+class Person(){
+	
+}

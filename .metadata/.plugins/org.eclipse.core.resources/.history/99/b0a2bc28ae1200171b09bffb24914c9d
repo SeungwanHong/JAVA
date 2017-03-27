@@ -1,0 +1,71 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class main05 {
+
+	final static String LOG_FILE_NAME = "log.txt";
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		// System.in
+		// System.out
+
+		// 1) System : 환경
+
+		// Sytem.in : 환경에서 뭔가 데이터를 받아 오겠다.(대표적인 입력 장치로부터)
+		// 콘솔 환경에서 입력을 받아오겠다.(키보드)
+
+		// System.out : 환경에다 뭔가 데이터를 출력하겠다.
+		// 콘솔환경에서 출력을 하겠다.(콘솔, 터미널, 모니터)
+		// 키보드로 입력받은 내용을 전부다 log.txt에 저장
+		// "exit" 입력시 프로그램 종료
+		// 프로그램을 다시 실행하면 log.txt에 입력 되어 있던 내용을 표시
+		// Bufferd Reader / Writer를 사용 할 것.
+		// 최초 실행시 log.txt가 없어 -> creatNewFile()
+		// 있다면 내용 다 뿌려주고 다시 입력 받기 실행(isAppend = true)
+		// 이어쓰기s
+		File file = new File(LOG_FILE_NAME);
+		Scanner sc = new Scanner(System.in);
+
+		if(file.exists()){
+			//주스트림
+			FileReader in = new FileReader(file);
+			//보조스트림
+			BufferedReader br = new BufferedReader(in);
+
+			String line = "";
+			System.out.println("-----log.txt start-----");
+			while((line = br.readLine()) != null){
+				System.out.println(line);
+			}
+			System.out.println("-----log.txt end--------");
+			br.close();
+		}
+		else{
+			file.createNewFile();
+		}
+		//주스트림
+		FileWriter out = new FileWriter(file,true);
+		//보조 스트림
+		BufferedWriter bw = new BufferedWriter(out);
+		String str = "";
+		System.out.println("한 줄 씩 입력하세요");
+		while(true){
+			str = sc.nextLine();
+			if(str.toLowerCase().equals("exit")){
+				break;
+			}else{
+				bw.write(str+"\n");
+			}
+		}
+
+		//보조스트림을 닫으면 주스트림은 자동으로 닫힌다.
+		bw.close();
+		System.out.println("프로그램 종료");
+	}
+
+}

@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+public class main06 {
+
+	//키보드로 입력받은 내용을 전부다 log.txt에 저장
+	//"exit" 입력시 프로그램 종료
+	//프로그램을 다시 실행하면 log.txt에 입력 되어 있던 내용을 표시
+	//Bufferd Reader / Writer를 사용 할 것.
+	//최초 실행시 log.txt가 없어 -> creatNewFile()
+	//있다면 내용 다 뿌려주고 다시 입력 받기 실행(isAppend = true)
+	//이어쓰기
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		//					목적지
+		File file = new File("log.txt");
+		//파일이 있는지 없는지느 모름
+
+
+		if(file.exists()){
+			FileReader in = new FileReader(file);
+			BufferedReader br = new BufferedReader(in);
+			
+			String line = "";
+			
+			while((line = br.readLine()) != null){
+				System.out.println(line);
+			}
+
+		}
+		else{
+			file.createNewFile();
+		}
+
+		FileWriter out = new FileWriter(file);
+		//2) 보조 스트림을 만든다. 매개변수로 주수트림의 객체가 들어간다.
+		BufferedWriter bufferwriter = new BufferedWriter(out);
+		
+		bufferwriter.write("Hello");		//char [] 버퍼를 만든다. 해당 문자열의 갯수만큼의 char형 배열을 만들고
+											//해당 데이터를 복사한 후에 파일에 전송한다. \n또는 문자열이 끝난것을 기준으로
+											//BufferedWrite에서 자동으로 배열을 만들어 낸다.
+		bufferwriter.write("World");
+		
+		//보조스트림을 닫으면 주스트림은 자동으로 닫힌다.
+		bufferwriter.close();
+		System.out.println("프로그램 종료");
+	}
+
+}

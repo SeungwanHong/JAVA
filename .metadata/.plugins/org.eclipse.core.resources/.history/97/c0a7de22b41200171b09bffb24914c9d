@@ -1,0 +1,19 @@
+import java.io.File;
+
+public class main07 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//읽어올 파일(원본 파일) 준비
+		
+		File originalFile = new File("common.jpg");
+		
+		if(originalFile.exists()){
+			
+		}else{
+			System.out.println("원본 파일이 없습니다.");
+		}
+		System.out.println("프로그램 종료");
+	}
+
+}

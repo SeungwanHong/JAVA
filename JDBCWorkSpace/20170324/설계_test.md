@@ -1,3 +1,3 @@
 tmp user; -> login state,id
-interface = dbconnect,  loginchecker, sqlÀü¼Û(¿¹¿ÜÃ³¸®), joincheck,
-login_state,id Àü¿ªº¯¼ö
+interface = dbconnect,  loginchecker, sqlì „ì†¡(ì˜ˆì™¸ì²˜ë¦¬), joincheck,
+login_state,id ì „ì—­ë³€ìˆ˜

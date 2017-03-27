@@ -1,0 +1,27 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class main06 {
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		File file = new File("bufferedTest.txt");
+		
+		if(file.exists()){
+			//출력
+			System.out.println("있다.");
+			//내용 출력
+			
+		}
+		else{
+			//파일 만들기
+		}
+		//입력받는데
+		//log.txt 저장 (outputStream)
+		//"exit"
+	}
+
+}

@@ -1,5 +1,0 @@
-package testBoard.interDB.impl;
-
-public class DBConnector {
-
-}

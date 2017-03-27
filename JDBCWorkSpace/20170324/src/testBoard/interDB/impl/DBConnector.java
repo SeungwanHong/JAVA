@@ -16,8 +16,10 @@ public class DBConnector implements DBConnect{
 	private Connection conn = null;	
 	private PreparedStatement pstmt = null;
 	
-	@Override
-	public void dbConnect(){
+	public DBConnector(){
+		dbConnect();
+	}
+	private void dbConnect(){
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			System.out.println("라이브러리 로드 완료");

@@ -1,0 +1,13 @@
+import java.io.File;
+
+public class main08 {
+	public static void main(String[] args) {
+		//DataInput/OutputStream
+		//자바의 기본 자료형의 입출력을 손쉽게 해준다.
+		
+		File file = new File("test2.txt");
+		if(file.exists()){
+			
+		}
+	}
+}
