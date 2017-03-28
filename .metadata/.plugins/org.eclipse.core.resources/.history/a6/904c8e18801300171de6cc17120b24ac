@@ -1,0 +1,13 @@
+package hsw.example.client.thread;
+
+import java.io.InputStream;
+
+public class ClientThread03 {
+	
+	//서버가 보내는 채팅 매세지를 받기 위한 inputstream
+	private InputStream in;
+	
+	public ClientThread03(InputStream in){
+		this.in =  in
+	}
+}

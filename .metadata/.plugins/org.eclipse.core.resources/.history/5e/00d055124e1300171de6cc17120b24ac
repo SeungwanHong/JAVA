@@ -1,0 +1,13 @@
+package hsw.example;
+
+public class mai01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//대문자 출력하기
+		for(char ch = 'A' ; ch <= 'Z' ; ch++){
+			System.out.println("대문자 : "+ch);
+		}
+	}
+
+}

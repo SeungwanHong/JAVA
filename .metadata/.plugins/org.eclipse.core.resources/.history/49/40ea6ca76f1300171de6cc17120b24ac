@@ -1,0 +1,25 @@
+package hsw.example.client;
+
+import java.io.IOException;
+import java.net.Socket;
+
+public class Client01 {
+	//1)서버에 접속
+	public static void main(String[] args) {
+		Socket socket = null;
+		
+		try{
+			//socket = new Socket("아이피",포트);
+			socket = new Socket("192.168.1.76", 8080);
+			System.out.println("접속 성공");
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				socket.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+}

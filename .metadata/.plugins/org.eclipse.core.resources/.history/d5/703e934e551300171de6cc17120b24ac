@@ -1,0 +1,9 @@
+package hsw.example;
+
+import hsw.example.thread.classes.ShareObj1;
+
+public class main02 {
+	public static void main(String[] args) {
+		ShareObj1 obj = new ShareObj1();
+	}
+}

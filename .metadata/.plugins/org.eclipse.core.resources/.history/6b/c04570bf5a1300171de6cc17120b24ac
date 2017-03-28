@@ -1,0 +1,10 @@
+package hsw.example.thread.classes;
+
+public class ToiletThead extends Thread{
+
+	private Toilet toilet;
+	
+	public ToiletThead(Toilet toilet){
+		this.toilet;
+	}
+}

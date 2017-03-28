@@ -1,0 +1,41 @@
+package hsw.example.client;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class Client01 {
+	//1)서버에 접속
+	public static void main(String[] args) {
+		Socket socket = null;
+		
+		try{
+			//socket = new Socket("아이피",포트);
+			socket = new Socket("192.168.1.2", 8080);
+			System.out.println("접속 성공");
+			//서버의 메세지를 받는 부분
+//			InputStream in = socket.getInputStream();
+//			DataInputStream dis = new DataInputStream(in);
+//			
+//			String msg = dis.readUTF();
+//			System.out.println(msg);
+			
+			//클라이언트에서 서버에 메세지를 보내는부분
+			OutputStream out = socket.getOutputStream();
+			DataOutputStream dos = new DataOutputStream(out);
+			
+			dos.writeUTF(socket+"에서 보낸 메세지입니다.\n ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				socket.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+}

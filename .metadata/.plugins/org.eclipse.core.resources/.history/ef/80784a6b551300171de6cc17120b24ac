@@ -1,0 +1,13 @@
+package hsw.example;
+
+import hsw.example.thread.classes.ShareObj1;
+import hsw.example.thread.classes.Tread1;
+
+public class main02 {
+	public static void main(String[] args) {
+		ShareObj1 obj = new ShareObj1();
+		
+		Tread1 th1 = new Tread1(obj);
+		Tread2 th2 = new Tread2(obj);
+	}
+}

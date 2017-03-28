@@ -1,0 +1,6 @@
+package hsw.example.thread.classes;
+
+public class ShareObj1 {
+	public int num = 0;
+
+}

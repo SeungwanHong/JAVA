@@ -1,0 +1,43 @@
+package hsw.example.server;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server01 {
+	public static void main(String[] args) {
+		//1)서버 구성을 위한 서버 소켓 생성
+		ServerSocket sScok = null;
+		Socket clientSocket = null;
+		try{
+			//2) 클라이언트의 접속을 받기 위한 포트 설정(기본적인 IP는 현재 컴퓨터 의 IP가 설정된다.)
+			//					포트번호 :8080
+			//서버 소캣을 먼저 만들고 이 서버소캣은 포트번호를 가지고 있다.
+			sScok = new ServerSocket(8080);
+			
+			//accept() : 클라이언트의 접속을 대기(block)
+			//쓰래드 join과 비슷하게, 다른 클라이언트가 접속해야만 아래쪽 코드가 진행된다.
+			//클라이언트가 접속을 하게되면 클라이언트와 통신을 할 수 있는 소캣을 생성해낸다.
+			clientSocket = sScok.accept();
+			//??궁금점 클라이언트 소켓에 왜 서버소켓 액샙트를 받는가?
+			//클라이언트 소켓이라고 적었을뿐 서버 안의 소켓이고, 그 소켓으로 클라이언트와 통신을 하겠다는 의미 인가?
+			System.out.println(clientSocket + "에서 접속 성공");
+			
+			//3) 클라이언트가 들어옴  =>클라이언트에게 메세지를 보내기
+			OutputStream out = clientSocket.getOutputStream();
+			DataOutputStream dos = new DataOutputStream(out);
+			
+			dos.close();
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				sScok.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+}

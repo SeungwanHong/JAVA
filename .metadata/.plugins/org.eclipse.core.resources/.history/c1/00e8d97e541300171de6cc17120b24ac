@@ -1,0 +1,11 @@
+package hsw.example.thread.classes;
+
+public class Tread1 implements Runnable{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

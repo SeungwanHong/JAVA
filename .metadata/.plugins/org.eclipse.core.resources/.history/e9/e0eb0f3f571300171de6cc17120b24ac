@@ -1,0 +1,9 @@
+package hsw.example.thread.classes;
+
+public class ShareObj1 {
+	public int num = 0;
+	
+	//제일 안좋은 예
+	//public boolean isChage = false;
+	
+}

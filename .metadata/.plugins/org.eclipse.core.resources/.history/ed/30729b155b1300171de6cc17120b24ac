@@ -1,0 +1,17 @@
+package hsw.example.thread.classes;
+
+public class ToiletThead extends Thread{
+
+	private Toilet toilet;
+	
+	public ToiletThead(String nameToilet toilet){
+		this.toilet = toilet;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+	
+}

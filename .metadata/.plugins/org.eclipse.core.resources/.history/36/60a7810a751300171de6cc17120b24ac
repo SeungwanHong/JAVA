@@ -1,0 +1,12 @@
+package hsw.example.client;
+
+public class Client02 {
+
+	static final String IP = "192.168.1.2";
+	static final String PORT = "192.168.1.2";
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

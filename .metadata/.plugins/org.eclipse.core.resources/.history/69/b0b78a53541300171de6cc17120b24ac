@@ -1,0 +1,9 @@
+package hsw.example.thread.classes;
+
+public class Tread2 implements new Runnable() {
+	public void run() {
+		
+	}
+}{
+
+}

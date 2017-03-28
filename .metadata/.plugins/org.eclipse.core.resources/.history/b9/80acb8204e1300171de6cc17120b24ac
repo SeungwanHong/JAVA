@@ -1,0 +1,18 @@
+package hsw.example;
+
+import hsw.example.thread.classes.EnglishLowerThread;
+import hsw.example.thread.classes.KoreanThread;
+
+public class mai01 {
+
+	public static void main(String[] args) {
+		EnglishLowerThread elt = new EnglishLowerThread();
+		KoreanThread kt = new KoreanThread();
+		// TODO Auto-generated method stub
+		//대문자 출력하기
+		for(char ch = 'A' ; ch <= 'Z' ; ch++){
+			System.out.println("대문자 : "+ch);
+		}
+	}
+
+}

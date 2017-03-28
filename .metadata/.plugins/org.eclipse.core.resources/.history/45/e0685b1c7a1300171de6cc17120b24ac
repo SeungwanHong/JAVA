@@ -1,0 +1,32 @@
+package hsw.example.server;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
+
+import hsw.example.server.thread.ServerThread02;
+
+public class Server03 {
+	static final int PORT = 8080;
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Map<String, DataOutputStream> mClientMap = new HashMap<>();
+				
+		try {
+			ServerSocket sSocket = new ServerSocket(PORT);
+
+			System.out.println("Client wait....");
+			Socket clientSocket = sSocket.accept();
+			ServerThread02 clientThread = new ServerThread02(clientSocket);
+			clientThread.start();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+}

@@ -1,0 +1,11 @@
+package hsw.example.thread.classes;
+
+public class Toilet {
+
+	public void openDoor(String name){
+		System.out.println(name + " 이 화장실 문 열었음");
+	}
+	public void useToilet(String name){
+		
+	}
+}

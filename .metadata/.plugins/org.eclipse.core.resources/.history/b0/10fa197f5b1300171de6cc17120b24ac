@@ -1,0 +1,12 @@
+package hsw.example;
+
+import hsw.example.thread.classes.Toilet;
+
+public class main03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Toilet toilet = new Toilet();
+	}
+
+}

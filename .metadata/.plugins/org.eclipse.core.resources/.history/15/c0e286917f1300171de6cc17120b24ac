@@ -1,0 +1,7 @@
+package hsw.example.client;
+
+public class Client03 {
+	public static void main(String[] args) {
+		
+	}
+}

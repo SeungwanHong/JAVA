@@ -1,0 +1,40 @@
+package hsw.example.server;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import hsw.example.server.thread.ServerThread02;
+
+public class Server03 {
+	static final int PORT = 8080;
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		//String(닉네임, IP) gksxp DataOutputStream을 이용하여 데이터를 보내겠다.
+		Map<String, DataOutputStream> mClientMap = new HashMap<>();
+		
+		//각각 클라이언트들이 접속 할 때마다 발생되는 쓰레드에서 처리되는 자료구조임
+		//때문에 동기화가 필요하다.
+		
+		//일반 Map을 동기화 한 Map으로 변경
+		Collections.synchronizedMap(mClientMap);
+				
+		try {
+			ServerSocket sSocket = new ServerSocket(PORT);
+
+			System.out.println("Client wait....");
+			Socket clientSocket = sSocket.accept();
+			ServerThread02 clientThread = new ServerThread03(clientSocket,mClientMap);
+			clientThread.start();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+}

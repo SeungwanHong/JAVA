@@ -1,0 +1,25 @@
+package hsw.example.thread.classes;
+
+public class Tread2 extends Thread{
+
+	private ShareObj1 obj;
+	
+	public Tread2(ShareObj1 obj) {
+		// TODO Auto-generated constructor stub
+		this.obj = obj;
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(true){
+			if(obj.isChage) continue;
+		}
+			for(int i = 0 ; i<2000 ; i++){
+				obj.num--;
+				System.out.println("감소 : "+obj.num);
+			}
+			System.out.println("감소 끝 : "+obj.num);
+		}
+	}
+
+}

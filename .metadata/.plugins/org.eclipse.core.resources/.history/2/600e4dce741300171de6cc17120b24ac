@@ -1,0 +1,27 @@
+package hsw.example.server;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server02 {
+
+	static final int PORT = 8080;
+	
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+		ServerSocket sSocket = new ServerSocket(PORT);
+		
+		System.out.println("Client wait....");
+		Socket clientSocket = sSocket.accept();
+		
+		InputStream in = clientSocket.getInputStream();
+		DataInputStream dis = new DataInputStream(in);
+		
+		String client_nick_name = dis.readUTF();
+		
+	}
+
+}

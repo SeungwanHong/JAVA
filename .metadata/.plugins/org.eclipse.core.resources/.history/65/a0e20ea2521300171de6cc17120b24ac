@@ -1,0 +1,34 @@
+package hsw.example;
+
+import hsw.example.thread.classes.EnglishLowerThread;
+import hsw.example.thread.classes.KoreanThread;
+
+public class mai01 {
+
+	public static void main(String[] args) {
+		EnglishLowerThread elt = new EnglishLowerThread();
+		Thread kt = new Thread(new KoreanThread());
+
+		//thread 클래스 내부에 잇는 run 메소드는 절대 호출 하지 말자(Thread를 만든 의미가 없음)
+		//elt.run();
+		//kt.run();
+
+		//start() 매소드를 활용하여 쓰레드 작업단위를 위한 메모리 공간을 설정한다.
+		//다른 쓰레드와 힙매모리 및 매소드 영역을 공유할 수있게 된다.
+		//작업을 위한 메모리의 설정이 끝나면 run메소드에 작성된 코드가 실행된다.
+		elt.start();
+		kt.start();
+		// TODO Auto-generated method stub
+		//대문자 출력하기
+		for(char ch = 'A' ; ch <= 'Z' ; ch++){
+//			try {
+//				Thread.sleep(100);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			System.out.println("대문자 : "+ch);
+		}
+	}
+
+}

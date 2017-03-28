@@ -1,0 +1,9 @@
+package hsw.example.server.thread;
+
+public class ServerThread02 extends Thread{
+
+	private Socket clientSocket;
+	public ServerThread02(){
+		
+	}
+}

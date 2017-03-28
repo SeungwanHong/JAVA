@@ -1,0 +1,26 @@
+package hsw.example.server;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server01 {
+	public static void main(String[] args) {
+		//1)서버 구성을 위한 서버 소켓 생성
+		ServerSocket sScok = null;
+		try{
+			//2) 클라이언트의 접속을 받기 위한 포트 설정(기본적인 IP는 현재 컴퓨터 의 IP가 설정된다.)
+			//					포트번호 :8080
+			sScok = new ServerSocket(8080);
+			Socket clientSocket = sScok.accept()
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				sScok.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+}

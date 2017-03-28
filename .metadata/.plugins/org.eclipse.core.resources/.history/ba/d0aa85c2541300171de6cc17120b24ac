@@ -1,0 +1,11 @@
+package hsw.example.thread.classes;
+
+public class Tread2 extends Thread{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package hsw.example.thread.classes;
+
+public class Tread1 extends Thread{
+
+	private ShareObj1 obj;
+	public public Tread1(ShareObj1 obj1) {
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}

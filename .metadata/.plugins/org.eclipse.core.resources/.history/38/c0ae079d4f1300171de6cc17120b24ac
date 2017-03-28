@@ -1,0 +1,17 @@
+package hsw.example.thread.classes;
+
+//Runnable 인터페이스 implements
+//run 메소드를 오버라이딩 받아야한다.
+public class KoreanThread implements Runnable{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+		for(char ch = 'ㄱ' ; ch <= 'ㅎ' ; ch++){
+			v
+			System.out.println("\t한글 : "+ch);
+		}
+	}
+
+}
