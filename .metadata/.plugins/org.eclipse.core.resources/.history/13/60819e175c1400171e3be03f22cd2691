@@ -1,0 +1,8 @@
+package client.menu;
+
+public class ClientLoginMenu {
+
+	public void showLoginview(){
+		
+	}
+}

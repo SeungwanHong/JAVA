@@ -9,7 +9,7 @@ import java.util.Scanner;
 import hsw.example.client.thread.ClientThread03;
 
 public class Client03 {
-	static final String HOST = "192.168.1.2";
+	static final String HOST = "192.168.1.132";
 	static final int PORT = 8080;
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub

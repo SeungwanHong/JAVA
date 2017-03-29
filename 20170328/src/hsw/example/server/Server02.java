@@ -19,8 +19,11 @@ public class Server02 {
 			
 			System.out.println("Client wait....");
 			Socket clientSocket = sSocket.accept();
+			//쓰레드 처리
 			ServerThread02 clientThread = new ServerThread02(clientSocket);
 			clientThread.start();
+			
+			//쓰레드 처리 이전
 //			InputStream in = clientSocket.getInputStream();
 //			DataInputStream dis = new DataInputStream(in);
 //			
