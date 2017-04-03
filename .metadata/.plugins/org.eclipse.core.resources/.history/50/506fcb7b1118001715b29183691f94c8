@@ -1,0 +1,8 @@
+package exception;
+
+public class MyException extends RuntimeException{
+
+	   public MyException2 (String errmsg){
+	      super(errmsg);
+	   }
+	}

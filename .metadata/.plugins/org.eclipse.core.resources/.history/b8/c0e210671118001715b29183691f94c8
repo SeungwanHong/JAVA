@@ -1,0 +1,10 @@
+package exception;
+
+public class NumberException extends Exception{
+
+	@Override
+	public String getMessage() {
+		// TODO Auto-generated method stub
+		return "매뉴에 맞는번호를 입력하세요";
+	}
+}
