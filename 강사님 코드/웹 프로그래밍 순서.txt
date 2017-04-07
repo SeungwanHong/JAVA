@@ -1,0 +1,59 @@
+웹 프로그래밍 순서
+
+1) 클라이언트의 요청에 따른 데이터 처리 작업
+   - SQL 작성 및 해당하는 SQL에 따른 DTO나 VO 먼저 만들기 (데이터 모델링)
+
+2) 서비스 작성
+
+3) Controller 분기 처리
+   
+   - 클라이언트의 요청을 받기 위해서 url 분리 수행
+   - request 객체로부터 Parameter 받기(  request.getParameter("form의 name값")  )
+   - 받아낸 Parameter에 대해 필요시에 DTO를 작성한다
+   - Service를 호출하여 원하는 데이터 처리 작업을 수행한다.(Service에서는 DAO 작업 호출)
+   - request에 데이터를 넣어야 할 일이 있으면 request.setAttribute를 사용하고 forward를 수행한다.
+   - request가 유지되지 않아도 되고, 클라이언트가 전혀 다른 카테고리의 내용으로 간다면 redirect를 수행한다. 단, .jsp 페이지로 이동을 해야 한다면 forward를 사용해서 브라우저의 url에 .jsp가 찍히지 않게 만들어야 한다.
+
+BoardController.java 참조
+	
+	//클라이언트가 글을 다 쓰고 저장 하려고 한다.
+	else if(req_uri.equals(URLs.URI_BOARD_WRITE)){
+					
+		...생략...
+		//게시글을 작성 하고 나서
+		boardService.boardWriteService(boardContentDTO);
+		//리스트 페이지를 뿌려주는 주소로 클라이언트를 이동시킨다.(클라이언트의 요청이 새로 발생된다)
+		response.sendRedirect(URLs.URI_BOARD_LIST_FULL); //request를 유지할 필요 없이 board의 list만 보여줄 생각이기 때문에 redirect를 사용한다.
+
+	//클라이언트가 게시글을 작성하는 페이지로 이동하고자 한다.
+	else if(req_uri.equals(URLs.URI_BOARD_WRITE_PAGE)){
+		
+		//사용자가 요청한 url에 대해서 view만 클라이언트에게 보내주기 위해서 forward가 사용된다.
+		RequestDispatcher dispatcher = request.getRequestDispatcher(Pages.VIEW_BOARD_WRITE);
+		dispatcher.forward(request, response);
+					
+	}
+
+4) 사용자에게 보여줄 jsp 페이지 만들기
+   - jsp파일은 Controller가 request.setAttribute를 이용해 request 객체에 저장한 값을 사용자가 볼 수 있도록 view로 뿌려주는 역할만 해주면 된다.
+   - 비즈니스 로직은 jsp에 작성하지 않는다.
+	* 비즈니스 로직 : 클라이언트의 요청에 따른 분기 및 데이터 처리 등 자바로써 해결해야 할 부분들을 말한다.
+   - 앵커 태그(<a> </a>)를 사용해 서버에 get방식으로 Parameter를 전달 할 수 있다. 강제로 쿼리스트링(url에서 ? 이후 문자열)을 조립할 수 있다.
+	* ex) <a href="/board/board?bidx=인덱스값>제목</a>
+   - <input type="hidden" value="전달값" name="파라미터 키값" /> 을 이용하여 화면에는 보이지 않지만 <form>이 submit 되었을 때 파라미터를 전달 할 수 있다.
+        * ex) boardModify.jsp 참고 할 것 
+ 	      <input type="hidden" name="bidx" value="<%= request.getParameter("bidx")%>"/>
+
+5) 테스트
+   - 4)번에서 만든 jsp를 통해 Controller에 제대로 request 할 수 있는지 검사한다.
+   - Controller에 제대로 request를 한다면 parameter를 제대로 받아 낼 수 있는지 검사한다.(오타 주의..)
+   - Service를 통해 dao에 제대로 클라이언트가 전송한 parameter가 전달되는지 검사한다.(필요에 따라 DTO 사용)
+   - 전달된 파라미터를 이용해 DAO가 제대로 쿼리 작업을 수행하는지 검사한다.
+   - 쿼리 작업이 완료되고 완료된 후 로직을 클라이언트가 제대로 받아 볼 수 있는지(forward 또는 redirect) 검사한다.
+     * 서버 처리 결과물이나 이동하고자 하는 곳으로 제대로 이동하는지 검사
+
+
+
+
+
+
